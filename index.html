@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Govt. Div. ITI Gwalior | Skill India Portal</title>
+    <!-- Tailwind CSS for SIDH Aesthetic -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        // Custom Tailwind Colors to match Skill India Digital Hub
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandBlue: '#0f2c59',
+                        brandOrange: '#ff7b54',
+                        brandLight: '#f8f9fa'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Smooth transitions for our page switching */
+        .page-section { display: none; animation: fadeIn 0.4s ease-in-out; }
+        .page-section.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* Gallery Modal Styles */
+        #slider-modal { display: none; background: rgba(0,0,0,0.9); }
+        #slider-modal.active { display: flex; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+    <!-- TOP BAR (Government Branding) -->
+    <div class="bg-gray-100 border-b border-gray-200 text-xs text-gray-600 py-2 px-6 flex justify-between items-center hidden md:flex">
+        <div><i class="fas fa-landmark mr-2 text-brandOrange"></i> Government of Madhya Pradesh</div>
+        <div class="space-x-4">
+            <a href="#" class="hover:text-brandBlue">Skip to Main Content</a>
+            <a href="#" class="hover:text-brandBlue">Screen Reader Access</a>
+            <span class="border-l border-gray-400 pl-4 font-bold">A+ A A-</span>
+        </div>
+    </div>
+
+    <!-- MAIN NAVIGATION (SIDH Style) -->
+    <nav class="bg-white shadow-md sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <!-- Logo Area -->
+                <div class="flex items-center cursor-pointer" onclick="navigate('home')">
+                    <div class="flex-shrink-0 flex items-center bg-brandBlue text-white p-3 rounded-lg shadow-sm">
+                        <i class="fas fa-cogs text-2xl mr-2 text-brandOrange"></i>
+                        <div>
+                            <h1 class="font-bold text-lg leading-tight tracking-wide">GOVT. DIV. ITI GWALIOR</h1>
+                            <p class="text-[10px] text-gray-300">Skill India Partner</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-1">
+                    <button onclick="navigate('home')" class="nav-btn px-4 py-2 text-brandBlue font-semibold border-b-2 border-transparent hover:border-brandOrange hover:text-brandOrange transition">Home</button>
+                    <button onclick="navigate('about')" class="nav-btn px-4 py-2 text-gray-600 font-semibold border-b-2 border-transparent hover:border-brandOrange hover:text-brandOrange transition">About Us</button>
+                    <button onclick="navigate('trades')" class="nav-btn px-4 py-2 text-gray-600 font-semibold border-b-2 border-transparent hover:border-brandOrange hover:text-brandOrange transition">Trades & Courses</button>
+                    <button onclick="navigate('career-ai')" class="nav-btn px-4 py-2 text-brandOrange font-bold border-b-2 border-transparent hover:border-brandOrange transition">Career AI ✨</button>
+                    <button onclick="navigate('gallery')" class="nav-btn px-4 py-2 text-gray-600 font-semibold border-b-2 border-transparent hover:border-brandOrange hover:text-brandOrange transition">Campus Gallery</button>
+                    <button onclick="navigate('admission')" class="nav-btn px-4 py-2 text-gray-600 font-semibold border-b-2 border-transparent hover:border-brandOrange hover:text-brandOrange transition">Admissions</button>
+                    <button onclick="navigate('contact')" class="nav-btn px-4 py-2 text-gray-600 font-semibold border-b-2 border-transparent hover:border-brandOrange hover:text-brandOrange transition">Contact</button>
+                    <button onclick="navigate('admission')" class="ml-4 bg-brandOrange text-white px-6 py-2 rounded-full font-bold hover:bg-orange-600 shadow-md transition transform hover:scale-105">Apply Now</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- PAGE 1: HOME PAGE (Active by default) -->
+    <section id="home" class="page-section active">
+        <!-- SIDH Style Hero Banner -->
+        <div class="bg-brandBlue text-white py-20 relative overflow-hidden">
+            <!-- Background pattern -->
+            <div class="absolute inset-0 opacity-10">
+                <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                    <defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="1"/></pattern></defs>
+                    <rect width="100%" height="100%" fill="url(#grid)" />
+                </svg>
+            </div>
+            
+            <div class="max-w-4xl mx-auto text-center relative z-10 px-4">
+                <h2 class="text-brandOrange font-bold tracking-widest uppercase mb-2">Empowering Youth with Skills</h2>
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">What do you want to <br> <span class="text-brandOrange border-b-4 border-brandOrange">learn today?</span></h1>
+                <p class="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">Join Madhya Pradesh's premier technical institute. Get NCVT certified and kickstart your career in engineering and technology.</p>
+                
+                <!-- Search Bar (Aesthetic) -->
+                <div class="bg-white p-2 rounded-full shadow-lg flex max-w-2xl mx-auto">
+                    <input type="text" placeholder="Search for trades (e.g. COPA, Fitter, Electrician)..." class="flex-grow px-4 py-2 text-gray-800 rounded-l-full outline-none">
+                    <button onclick="navigate('trades')" class="bg-brandBlue text-white px-8 py-3 rounded-full font-bold hover:bg-blue-800 transition">Search</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Overlapping Stats Bar -->
+        <div class="max-w-5xl mx-auto px-4 -mt-10 relative z-20">
+            <div class="bg-white rounded-xl shadow-xl grid grid-cols-2 md:grid-cols-4 divide-x divide-gray-100 p-6 text-center">
+                <div class="p-4">
+                    <div class="text-3xl font-black text-brandBlue">15+</div>
+                    <div class="text-sm text-gray-500 font-semibold mt-1">NCVT Trades</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-3xl font-black text-brandOrange">2,500+</div>
+                    <div class="text-sm text-gray-500 font-semibold mt-1">Active Students</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-3xl font-black text-brandBlue">50+</div>
+                    <div class="text-sm text-gray-500 font-semibold mt-1">Expert Faculty</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-3xl font-black text-brandOrange">85%</div>
+                    <div class="text-sm text-gray-500 font-semibold mt-1">Placement Rate</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Popular Trades Cards -->
+        <div class="max-w-7xl mx-auto px-4 py-16">
+            <h3 class="text-3xl font-bold text-center text-brandBlue mb-2">Explore Popular Skill Sectors</h3>
+            <div class="w-24 h-1 bg-brandOrange mx-auto mb-10"></div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white rounded-xl shadow-md hover:shadow-2xl transition duration-300 overflow-hidden border border-gray-100 group">
+                    <div class="h-48 bg-blue-100 flex items-center justify-center text-brandBlue group-hover:bg-brandBlue group-hover:text-white transition">
+                        <i class="fas fa-laptop-code text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="bg-orange-100 text-brandOrange text-xs font-bold px-3 py-1 rounded-full">Non-Engineering</span>
+                        <h4 class="text-xl font-bold mt-3 mb-2 text-gray-800">COPA</h4>
+                        <p class="text-gray-600 text-sm mb-4">Computer Operator and Programming Assistant. Learn Web Design, Excel, Python & Networking.</p>
+                        <button onclick="navigate('trades')" class="text-brandBlue font-bold hover:text-brandOrange">View Details <i class="fas fa-arrow-right text-sm"></i></button>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-white rounded-xl shadow-md hover:shadow-2xl transition duration-300 overflow-hidden border border-gray-100 group">
+                    <div class="h-48 bg-blue-100 flex items-center justify-center text-brandBlue group-hover:bg-brandBlue group-hover:text-white transition">
+                        <i class="fas fa-bolt text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="bg-blue-100 text-brandBlue text-xs font-bold px-3 py-1 rounded-full">Engineering</span>
+                        <h4 class="text-xl font-bold mt-3 mb-2 text-gray-800">Electrician</h4>
+                        <p class="text-gray-600 text-sm mb-4">Master domestic and industrial wiring, AC/DC motors, transformers, and electrical safety.</p>
+                        <button onclick="navigate('trades')" class="text-brandBlue font-bold hover:text-brandOrange">View Details <i class="fas fa-arrow-right text-sm"></i></button>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-white rounded-xl shadow-md hover:shadow-2xl transition duration-300 overflow-hidden border border-gray-100 group">
+                    <div class="h-48 bg-blue-100 flex items-center justify-center text-brandBlue group-hover:bg-brandBlue group-hover:text-white transition">
+                        <i class="fas fa-wrench text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="bg-blue-100 text-brandBlue text-xs font-bold px-3 py-1 rounded-full">Engineering</span>
+                        <h4 class="text-xl font-bold mt-3 mb-2 text-gray-800">Fitter</h4>
+                        <p class="text-gray-600 text-sm mb-4">Precision engineering, assembling, structural frameworks, and advanced machinery operation.</p>
+                        <button onclick="navigate('trades')" class="text-brandBlue font-bold hover:text-brandOrange">View Details <i class="fas fa-arrow-right text-sm"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAGE 2: ABOUT PAGE -->
+    <section id="about" class="page-section bg-white py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-extrabold text-brandBlue mb-8 text-center">About Govt. Div. ITI Gwalior</h2>
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="md:w-1/2">
+                    <div class="bg-gray-200 rounded-xl w-full h-80 flex items-center justify-center shadow-inner relative overflow-hidden">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtTtU6rad-ChOFz7MDQ0aPWN9gAdtVmtnI_g&s" alt="Govt Divisional ITI Gwalior Campus" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-brandBlue opacity-20"></div>
+                    </div>
+                    <!-- Added Institute Directory Card -->
+                    <div class="mt-6 bg-blue-50 border border-blue-200 rounded-lg p-4 grid grid-cols-2 gap-4 text-sm">
+                        <div><span class="font-bold text-brandBlue">Institute Name:</span><br>Govt. Div. ITI Gwalior</div>
+                        <div><span class="font-bold text-brandBlue">MIS Code:</span><br>GR23000059</div>
+                        <div><span class="font-bold text-brandBlue">Institute Type:</span><br>Government</div>
+                        <div><span class="font-bold text-brandBlue">Location:</span><br>Urban (Gwalior)</div>
+                        <div><span class="font-bold text-brandBlue">Establishment:</span><br>1955</div>
+                        <div><span class="font-bold text-brandBlue">Affiliation:</span><br>NCVT, New Delhi</div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 space-y-6">
+                    <h3 class="text-2xl font-bold text-gray-800">Empowering Madhya Pradesh Since 1955</h3>
+                    <p class="text-gray-600 text-lg leading-relaxed">Govt. Div. Industrial Training Institute (ITI) Gwalior is a premier government technical education center. It is strictly affiliated with the National Council for Vocational Training (NCVT), New Delhi, and recognized by the Directorate General of Training (DGT), Ministry of Skill Development & Entrepreneurship.</p>
+                    <div class="bg-blue-50 border-l-4 border-brandOrange p-4 rounded-r">
+                        <h4 class="font-bold text-brandBlue mb-1">Principal's Message</h4>
+                        <p class="text-gray-700 italic text-sm">"Our mission is to bridge the gap between industry requirements and academic learning. Through hands-on training, modern workshops, and dedicated faculty, we forge the future workforce of India, fully aligned with the Skill India initiative."</p>
+                    </div>
+                    <ul class="space-y-3">
+                        <li class="flex items-center text-gray-700"><i class="fas fa-check-circle text-green-500 mr-3"></i> State-of-the-art Computer & Electronics Labs</li>
+                        <li class="flex items-center text-gray-700"><i class="fas fa-check-circle text-green-500 mr-3"></i> Highly equipped Mechanical Workshops</li>
+                        <li class="flex items-center text-gray-700"><i class="fas fa-check-circle text-green-500 mr-3"></i> 100% Placement Assistance</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Added Directorate & DGT Info -->
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 shadow-sm">
+                    <div class="bg-blue-100 text-brandBlue w-12 h-12 rounded-full flex items-center justify-center mb-4 text-xl"><i class="fas fa-sitemap"></i></div>
+                    <h4 class="font-bold text-gray-800 mb-2">Directorate General of Training (DGT)</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">Working under the Ministry of Skill Development and Entrepreneurship (MSDE), Government of India, the DGT formulates policies, sets standards, and standardizes vocational training across the nation to ensure industry-ready graduates.</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 shadow-sm">
+                    <div class="bg-orange-100 text-brandOrange w-12 h-12 rounded-full flex items-center justify-center mb-4 text-xl"><i class="fas fa-certificate"></i></div>
+                    <h4 class="font-bold text-gray-800 mb-2">NCVT & SCVT Affiliation</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">Our courses are strictly affiliated with the National Council for Vocational Training (NCVT). Graduates receive the National Trade Certificate (NTC), which is globally recognized for employment in public and private sectors.</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 shadow-sm">
+                    <div class="bg-blue-100 text-brandBlue w-12 h-12 rounded-full flex items-center justify-center mb-4 text-xl"><i class="fas fa-cogs"></i></div>
+                    <h4 class="font-bold text-gray-800 mb-2">Craftsmen Training Scheme (CTS)</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">Implemented to ensure a steady flow of skilled workers in different trades for the domestic industry. CTS reduces unemployment by providing hands-on, practical engineering and non-engineering skills to the youth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAGE 7: CAREER AI PAGE (Gemini Integration) -->
+    <section id="career-ai" class="page-section bg-brandLight py-16">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-200">
+                <div class="bg-brandBlue p-8 text-center text-white relative">
+                    <div class="absolute top-4 right-4 text-4xl opacity-20"><i class="fas fa-brain"></i></div>
+                    <h2 class="text-3xl font-extrabold mb-2">AI Career Counselor ✨</h2>
+                    <p class="text-gray-300 max-w-2xl mx-auto">Not sure which trade to pick? Let our advanced AI analyze your interests, hobbies, and strengths to recommend the perfect career path for you!</p>
+                </div>
+                <div class="p-8">
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-semibold mb-2 text-sm">Tell us about yourself!</label>
+                        <textarea id="ai-interest-input" rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brandOrange transition" placeholder="Example: I love working with computers and software, but I also enjoy fixing electronics and building things with my hands..."></textarea>
+                    </div>
+                    <button id="ai-submit-btn" onclick="getCareerRecommendation(event)" class="w-full bg-brandOrange text-white font-bold py-3 px-4 rounded-lg hover:bg-orange-600 transition shadow-lg transform hover:-translate-y-1 mb-6">
+                        Get AI Recommendation ✨ <i class="fas fa-magic ml-2"></i>
+                    </button>
+                    
+                    <div id="ai-result" class="min-h-[120px] flex items-center justify-center border-2 border-dashed border-gray-300 rounded-lg p-6 bg-gray-50">
+                        <p class="text-gray-400 text-sm text-center">Your personalized AI recommendation will appear here.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAGE 3: TRADES PAGE (HTML Table featured in report) -->
+    <section id="trades" class="page-section bg-gray-50 py-16">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-extrabold text-brandBlue mb-4">NCVT Affiliated Trades (Active Units)</h2>
+                <p class="text-gray-600">Comprehensive technical training programs designed for industrial readiness under the Craftsmen Training Scheme (CTS).</p>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-brandBlue text-white">
+                                <th class="p-5 font-bold uppercase text-sm">Trade Name</th>
+                                <th class="p-5 font-bold uppercase text-sm">NSQF Level</th>
+                                <th class="p-5 font-bold uppercase text-sm">Duration</th>
+                                <th class="p-5 font-bold uppercase text-sm">Min. Qualification</th>
+                                <th class="p-5 font-bold uppercase text-sm">Intake Capacity</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr class="hover:bg-orange-50 transition">
+                                <td class="p-5 font-bold text-gray-800">Computer Operator (COPA)</td>
+                                <td class="p-5 font-semibold text-brandBlue">Level 4</td>
+                                <td class="p-5 text-gray-600"><span class="bg-gray-200 px-2 py-1 rounded text-xs">1 Year</span></td>
+                                <td class="p-5 text-gray-600">10th Pass</td>
+                                <td class="p-5 text-gray-600 font-bold text-brandOrange">48 Seats</td>
+                            </tr>
+                            <tr class="hover:bg-blue-50 transition">
+                                <td class="p-5 font-bold text-gray-800">Electrician</td>
+                                <td class="p-5 font-semibold text-brandBlue">Level 5</td>
+                                <td class="p-5 text-gray-600"><span class="bg-brandOrange text-white px-2 py-1 rounded text-xs">2 Years</span></td>
+                                <td class="p-5 text-gray-600">10th Pass (Science & Math)</td>
+                                <td class="p-5 text-gray-600 font-bold text-brandOrange">40 Seats</td>
+                            </tr>
+                            <tr class="hover:bg-blue-50 transition">
+                                <td class="p-5 font-bold text-gray-800">Fitter</td>
+                                <td class="p-5 font-semibold text-brandBlue">Level 5</td>
+                                <td class="p-5 text-gray-600"><span class="bg-brandOrange text-white px-2 py-1 rounded text-xs">2 Years</span></td>
+                                <td class="p-5 text-gray-600">10th Pass (Science & Math)</td>
+                                <td class="p-5 text-gray-600 font-bold text-brandOrange">40 Seats</td>
+                            </tr>
+                            <tr class="hover:bg-orange-50 transition">
+                                <td class="p-5 font-bold text-gray-800">Welder</td>
+                                <td class="p-5 font-semibold text-brandBlue">Level 4</td>
+                                <td class="p-5 text-gray-600"><span class="bg-gray-200 px-2 py-1 rounded text-xs">1 Year</span></td>
+                                <td class="p-5 text-gray-600">8th Pass</td>
+                                <td class="p-5 text-gray-600 font-bold text-brandOrange">40 Seats</td>
+                            </tr>
+                            <tr class="hover:bg-orange-50 transition">
+                                <td class="p-5 font-bold text-gray-800">Stenographer (Hindi)</td>
+                                <td class="p-5 font-semibold text-brandBlue">Level 4</td>
+                                <td class="p-5 text-gray-600"><span class="bg-gray-200 px-2 py-1 rounded text-xs">1 Year</span></td>
+                                <td class="p-5 text-gray-600">10th Pass</td>
+                                <td class="p-5 text-gray-600 font-bold text-brandOrange">48 Seats</td>
+                            </tr>
+                            
+                            <!-- Added New Trades -->
+                            <tr class="hover:bg-blue-50 transition">
+                                <td class="p-5 font-bold text-gray-800">Machinist</td>
+                                <td class="p-5 font-semibold text-brandBlue">Level 5</td>
+                                <td class="p-5 text-gray-600"><span class="bg-brandOrange text-white px-2 py-1 rounded text-xs">2 Years</span></td>
+                                <td class="p-5 text-gray-600">10th Pass (Science & Math)</td>
+                                <td class="p-5 text-gray-600 font-bold text-brandOrange">20 Seats</td>
+                            </tr>
+                            <tr class="hover:bg-blue-50 transition">
+                                <td class="p-5 font-bold text-gray-800">Turner</td>
+                                <td class="p-5 font-semibold text-brandBlue">Level 5</td>
+                                <td class="p-5 text-gray-600"><span class="bg-brandOrange text-white px-2 py-1 rounded text-xs">2 Years</span></td>
+                                <td class="p-5 text-gray-600">10th Pass (Science & Math)</td>
+                                <td class="p-5 text-gray-600 font-bold text-brandOrange">20 Seats</td>
+                            </tr>
+                            <tr class="hover:bg-blue-50 transition">
+                                <td class="p-5 font-bold text-gray-800">Mechanic Motor Vehicle (MMV)</td>
+                                <td class="p-5 font-semibold text-brandBlue">Level 5</td>
+                                <td class="p-5 text-gray-600"><span class="bg-brandOrange text-white px-2 py-1 rounded text-xs">2 Years</span></td>
+                                <td class="p-5 text-gray-600">10th Pass (Science & Math)</td>
+                                <td class="p-5 text-gray-600 font-bold text-brandOrange">48 Seats</td>
+                            </tr>
+                            <tr class="hover:bg-blue-50 transition">
+                                <td class="p-5 font-bold text-gray-800">Electronics Mechanic</td>
+                                <td class="p-5 font-semibold text-brandBlue">Level 5</td>
+                                <td class="p-5 text-gray-600"><span class="bg-brandOrange text-white px-2 py-1 rounded text-xs">2 Years</span></td>
+                                <td class="p-5 text-gray-600">10th Pass (Science & Math)</td>
+                                <td class="p-5 text-gray-600 font-bold text-brandOrange">24 Seats</td>
+                            </tr>
+                            <tr class="hover:bg-blue-50 transition">
+                                <td class="p-5 font-bold text-gray-800">Draftsman (Civil)</td>
+                                <td class="p-5 font-semibold text-brandBlue">Level 5</td>
+                                <td class="p-5 text-gray-600"><span class="bg-brandOrange text-white px-2 py-1 rounded text-xs">2 Years</span></td>
+                                <td class="p-5 text-gray-600">10th Pass (Science & Math)</td>
+                                <td class="p-5 text-gray-600 font-bold text-brandOrange">24 Seats</td>
+                            </tr>
+                            <tr class="hover:bg-orange-50 transition">
+                                <td class="p-5 font-bold text-gray-800">Plumber</td>
+                                <td class="p-5 font-semibold text-brandBlue">Level 4</td>
+                                <td class="p-5 text-gray-600"><span class="bg-gray-200 px-2 py-1 rounded text-xs">1 Year</span></td>
+                                <td class="p-5 text-gray-600">8th Pass</td>
+                                <td class="p-5 text-gray-600 font-bold text-brandOrange">24 Seats</td>
+                            </tr>
+                            <tr class="hover:bg-orange-50 transition">
+                                <td class="p-5 font-bold text-gray-800">Dress Making</td>
+                                <td class="p-5 font-semibold text-brandBlue">Level 4</td>
+                                <td class="p-5 text-gray-600"><span class="bg-gray-200 px-2 py-1 rounded text-xs">1 Year</span></td>
+                                <td class="p-5 text-gray-600">8th Pass</td>
+                                <td class="p-5 text-gray-600 font-bold text-brandOrange">20 Seats</td>
+                            </tr>
+                            <tr class="hover:bg-orange-50 transition">
+                                <td class="p-5 font-bold text-gray-800">Cosmetology</td>
+                                <td class="p-5 font-semibold text-brandBlue">Level 4</td>
+                                <td class="p-5 text-gray-600"><span class="bg-gray-200 px-2 py-1 rounded text-xs">1 Year</span></td>
+                                <td class="p-5 text-gray-600">10th Pass</td>
+                                <td class="p-5 text-gray-600 font-bold text-brandOrange">24 Seats</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAGE 4: GALLERY PAGE (Interactive JS Slider featured in report) -->
+    <section id="gallery" class="page-section bg-white py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-extrabold text-brandBlue mb-4">Campus Gallery</h2>
+                <p class="text-gray-600">Click on any image to launch the interactive viewer.</p>
+            </div>
+            
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <!-- Using Unsplash placeholder images for demonstration -->
+                <div class="cursor-pointer overflow-hidden rounded-lg shadow-md hover:shadow-xl transition" onclick="openSlider(0)">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtTtU6rad-ChOFz7MDQ0aPWN9gAdtVmtnI_g&s" class="w-full h-48 object-cover hover:scale-110 transition duration-500" alt="Main Building">
+                </div>
+                <div class="cursor-pointer overflow-hidden rounded-lg shadow-md hover:shadow-xl transition" onclick="openSlider(1)">
+                    <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500&q=80" class="w-full h-48 object-cover hover:scale-110 transition duration-500" alt="COPA Computer Lab">
+                </div>
+                <div class="cursor-pointer overflow-hidden rounded-lg shadow-md hover:shadow-xl transition" onclick="openSlider(2)">
+                    <img src="https://images.unsplash.com/photo-1504917595217-d4f500671c4a?w=500&q=80" class="w-full h-48 object-cover hover:scale-110 transition duration-500" alt="Welding Workshop">
+                </div>
+                <div class="cursor-pointer overflow-hidden rounded-lg shadow-md hover:shadow-xl transition" onclick="openSlider(3)">
+                    <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?w=500&q=80" class="w-full h-48 object-cover hover:scale-110 transition duration-500" alt="Electrician Lab">
+                </div>
+                <div class="cursor-pointer overflow-hidden rounded-lg shadow-md hover:shadow-xl transition" onclick="openSlider(4)">
+                    <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=500&q=80" class="w-full h-48 object-cover hover:scale-110 transition duration-500" alt="Library">
+                </div>
+                <div class="cursor-pointer overflow-hidden rounded-lg shadow-md hover:shadow-xl transition" onclick="openSlider(5)">
+                    <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=500&q=80" class="w-full h-48 object-cover hover:scale-110 transition duration-500" alt="Students in Campus">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FULLSCREEN IMAGE SLIDER MODAL (JS Interactive Object) -->
+    <div id="slider-modal" class="fixed inset-0 z-50 flex-col justify-center items-center">
+        <button onclick="closeSlider()" class="absolute top-6 right-8 text-white text-4xl hover:text-brandOrange transition">&times;</button>
+        
+        <div class="flex items-center w-full max-w-5xl px-4">
+            <button onclick="showPrevImage()" class="text-white text-5xl p-4 hover:text-brandOrange transition"><i class="fas fa-chevron-left"></i></button>
+            <div class="flex-grow text-center px-4">
+                <img id="gallery-frame" src="" class="max-h-[80vh] mx-auto rounded-lg shadow-2xl border-4 border-white" alt="Gallery Viewer">
+                <p id="gallery-caption" class="text-white mt-4 text-xl font-semibold tracking-wide"></p>
+            </div>
+            <button onclick="showNextImage()" class="text-white text-5xl p-4 hover:text-brandOrange transition"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+
+    <!-- PAGE 5: ADMISSION PAGE -->
+    <section id="admission" class="page-section bg-brandLight py-16">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-200">
+                <div class="bg-brandBlue p-8 text-center text-white">
+                    <h2 class="text-3xl font-extrabold mb-2">Admissions Open 2026-27</h2>
+                    <p class="text-gray-300">Secure your seat in Madhya Pradesh's top skill hub.</p>
+                </div>
+                <div class="p-8">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 border-b-2 border-brandOrange pb-2 inline-block">Step-by-Step Process</h3>
+                    <ul class="space-y-6 mt-4">
+                        <li class="flex">
+                            <div class="bg-blue-100 text-brandBlue font-black rounded-full h-10 w-10 flex items-center justify-center flex-shrink-0 mr-4">1</div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Online Registration</h4>
+                                <p class="text-gray-600 text-sm">Register on the official MP Online ITI Counseling Portal. Create your profile and pay the registration fee.</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <div class="bg-blue-100 text-brandBlue font-black rounded-full h-10 w-10 flex items-center justify-center flex-shrink-0 mr-4">2</div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Choice Filling</h4>
+                                <p class="text-gray-600 text-sm">Select 'Govt. Div. ITI Gwalior' as your first preference and choose your desired trades in order of priority.</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <div class="bg-blue-100 text-brandBlue font-black rounded-full h-10 w-10 flex items-center justify-center flex-shrink-0 mr-4">3</div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Merit List & Allotment</h4>
+                                <p class="text-gray-600 text-sm">Wait for the DGT merit list. Selection is strictly based on 10th/8th board marks percentage.</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <div class="bg-orange-100 text-brandOrange font-black rounded-full h-10 w-10 flex items-center justify-center flex-shrink-0 mr-4">4</div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Document Verification</h4>
+                                <p class="text-gray-600 text-sm">Report to the ITI campus with original documents (Aadhaar, Marksheets, Domicile, Caste Certificate) to finalize admission.</p>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <div class="mt-10 bg-gray-50 p-6 rounded-lg border border-gray-200 text-center">
+                        <h4 class="font-bold text-gray-800 mb-4">Ready to Apply?</h4>
+                        <div class="flex flex-col sm:flex-row justify-center gap-4">
+                            <button class="bg-brandOrange text-white px-6 py-3 rounded-md font-bold hover:bg-orange-600 transition"><i class="fas fa-external-link-alt mr-2"></i> MP Online Portal</button>
+                            <button class="bg-brandBlue text-white px-6 py-3 rounded-md font-bold hover:bg-blue-900 transition"><i class="fas fa-download mr-2"></i> Download Prospectus</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAGE 6: CONTACT PAGE (Form Validation JS featured in report) -->
+    <section id="contact" class="page-section bg-white py-16">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-4xl font-extrabold text-brandBlue mb-12 text-center">Contact Administration</h2>
+            
+            <div class="flex flex-col md:flex-row gap-12">
+                <!-- Contact Info -->
+                <div class="md:w-1/3 space-y-8">
+                    <div class="flex items-start">
+                        <div class="bg-blue-50 text-brandBlue p-4 rounded-lg mr-4">
+                            <i class="fas fa-map-marker-alt text-2xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800 text-lg">Address</h4>
+                            <p class="text-gray-600">Govt. Div. ITI<br>Birla Nagar, Gwalior<br>Madhya Pradesh - 474004</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="bg-blue-50 text-brandBlue p-4 rounded-lg mr-4">
+                            <i class="fas fa-phone-alt text-2xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800 text-lg">Phone</h4>
+                            <p class="text-gray-600">0751-2365448<br>0751-2364000 (Admissions)</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="bg-blue-50 text-brandBlue p-4 rounded-lg mr-4">
+                            <i class="fas fa-envelope text-2xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800 text-lg">Email</h4>
+                            <p class="text-gray-600">iti.gwalior@mp.gov.in<br>principalitigwalior@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="bg-orange-50 text-brandOrange p-4 rounded-lg mr-4">
+                            <i class="fas fa-id-card text-2xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800 text-lg">Institute Code</h4>
+                            <p class="text-gray-600 font-bold">MIS Code: GR23000059</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Inquiry Form (Validated by JS) -->
+                <div class="md:w-2/3 bg-gray-50 p-8 rounded-xl shadow-inner border border-gray-200">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Send an Admission Inquiry</h3>
+                    <form id="admissionForm" onsubmit="validateAdmissionForm(event)" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-gray-700 font-semibold mb-2 text-sm">Full Name <span class="text-red-500">*</span></label>
+                                <input type="text" id="nameInput" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brandOrange focus:border-transparent transition" placeholder="Enter your legal name">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 font-semibold mb-2 text-sm">Mobile Number <span class="text-red-500">*</span></label>
+                                <input type="number" id="phoneInput" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brandOrange focus:border-transparent transition" placeholder="10-digit mobile number">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2 text-sm">Select Trade of Interest</label>
+                            <select id="tradeInput" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brandOrange transition bg-white">
+                                <option value="">-- Select a Trade --</option>
+                                <option value="COPA">COPA (Computer Operator)</option>
+                                <option value="Electrician">Electrician</option>
+                                <option value="Fitter">Fitter</option>
+                                <option value="Welder">Welder</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-semibold mb-2 text-sm">Your Query</label>
+                            <textarea id="queryInput" rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brandOrange transition" placeholder="Type your message here..."></textarea>
+                        </div>
+                        
+                        <!-- Alert Box for Validation Errors -->
+                        <div id="formAlert" class="hidden bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded" role="alert">
+                            <p id="formAlertMsg" class="font-bold">Error!</p>
+                        </div>
+                        <div id="formSuccess" class="hidden bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded" role="alert">
+                            <p class="font-bold">Success! Your inquiry has been sent to the Principal's office.</p>
+                        </div>
+
+                        <button type="submit" class="w-full bg-brandBlue text-white font-bold py-3 px-4 rounded-lg hover:bg-blue-900 transition shadow-lg transform hover:-translate-y-1">
+                            Submit Inquiry <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-white pt-12 pb-6 border-t-4 border-brandOrange">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <div class="md:col-span-2">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-landmark text-3xl text-brandOrange mr-3"></i>
+                    <h2 class="text-2xl font-bold">Govt. Div. ITI Gwalior</h2>
+                </div>
+                <p class="text-gray-400 text-sm leading-relaxed max-w-md">Empowering the youth of Madhya Pradesh with world-class vocational training. A nodal government institute acting as a proud partner of the Skill India Digital Hub network and NCVT.</p>
+            </div>
+            <div>
+                <h4 class="text-lg font-bold mb-4 text-brandOrange">Quick Links</h4>
+                <ul class="space-y-2 text-sm text-gray-400">
+                    <li><a href="#" onclick="navigate('home')" class="hover:text-white transition">Home</a></li>
+                    <li><a href="#" onclick="navigate('career-ai')" class="hover:text-white transition text-brandOrange font-bold">Career AI ✨</a></li>
+                    <li><a href="#" onclick="navigate('trades')" class="hover:text-white transition">Trades & Syllabus</a></li>
+                    <li><a href="#" onclick="navigate('admission')" class="hover:text-white transition">Online Admission</a></li>
+                    <li><a href="#" class="hover:text-white transition">MP Online Portal</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-lg font-bold mb-4 text-brandOrange">Connect</h4>
+                <div class="flex space-x-4">
+                    <a href="#" class="bg-gray-800 p-3 rounded-full hover:bg-brandBlue transition"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="bg-gray-800 p-3 rounded-full hover:bg-blue-400 transition"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="bg-gray-800 p-3 rounded-full hover:bg-red-600 transition"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center text-gray-500 text-xs border-t border-gray-800 pt-6">
+            <p>&copy; 2026 Govt. Div. ITI Gwalior. Developed by ITI COPA Students as a Project submission.</p>
+        </div>
+    </footer>
+
+    <!-- ==========================================
+         JAVASCRIPT LOGIC (Matches Report Part 4)
+         ========================================== -->
+    <script>
+        // --- 1. SPA ROUTING LOGIC (Switching Pages) ---
+        function navigate(pageId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Remove active styling from all nav buttons
+            const navBtns = document.querySelectorAll('.nav-btn');
+            navBtns.forEach(btn => {
+                btn.classList.remove('text-brandOrange', 'border-brandOrange');
+                btn.classList.add('border-transparent');
+            });
+
+            // Show target section
+            document.getElementById(pageId).classList.add('active');
+            
+            // Add active styling to clicked button (find it by analyzing its onclick attribute)
+            navBtns.forEach(btn => {
+                if(btn.getAttribute('onclick') === `Maps('${pageId}')`) {
+                    btn.classList.add('text-brandOrange', 'border-brandOrange');
+                    btn.classList.remove('border-transparent', 'text-brandBlue', 'text-gray-600');
+                }
+            });
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // --- 2. INTERACTIVE IMAGE SLIDER LOGIC ---
+        // Array holding the image data
+        const campusImages = [
+            { src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtTtU6rad-ChOFz7MDQ0aPWN9gAdtVmtnI_g&s", caption: "Govt. Div. ITI Gwalior Main Administrative Building" },
+            { src: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1000&q=80", caption: "Advanced COPA Computer Laboratory" },
+            { src: "https://images.unsplash.com/photo-1504917595217-d4f500671c4a?w=1000&q=80", caption: "Heavy Machinery & Welding Workshop" },
+            { src: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=1000&q=80", caption: "Electrician Practical Training Lab" },
+            { src: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1000&q=80", caption: "Central Institute Library" },
+            { src: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=1000&q=80", caption: "Students relaxing in the campus grounds" }
+        ];
+        
+        let currentIndex = 0;
+        const modal = document.getElementById('slider-modal');
+        const frame = document.getElementById('gallery-frame');
+        const caption = document.getElementById('gallery-caption');
+
+        function openSlider(index) {
+            currentIndex = index;
+            updateSliderContent();
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeSlider() {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        function showNextImage() {
+            currentIndex++;
+            if (currentIndex >= campusImages.length) {
+                currentIndex = 0; // Loop back to start
+            }
+            updateSliderContent();
+        }
+
+        function showPrevImage() {
+            currentIndex--;
+            if (currentIndex < 0) {
+                currentIndex = campusImages.length - 1; // Jump to end
+            }
+            updateSliderContent();
+        }
+
+        function updateSliderContent() {
+            frame.src = campusImages[currentIndex].src;
+            caption.innerText = campusImages[currentIndex].caption;
+        }
+
+        // --- 3. FORM VALIDATION LOGIC ---
+        function validateAdmissionForm(event) {
+            // Prevent actual form submission to server
+            event.preventDefault();
+
+            const name = document.getElementById('nameInput').value.trim();
+            const phone = document.getElementById('phoneInput').value.trim();
+            const alertBox = document.getElementById('formAlert');
+            const alertMsg = document.getElementById('formAlertMsg');
+            const successBox = document.getElementById('formSuccess');
+
+            // Reset boxes
+            alertBox.classList.add('hidden');
+            successBox.classList.add('hidden');
+
+            // Logical Check 1: Empty Name
+            if (name === "") {
+                alertMsg.innerText = "CRITICAL ERROR: Please enter your full legal name.";
+                alertBox.classList.remove('hidden');
+                return false;
+            }
+
+            // Logical Check 2: Phone length (must be exactly 10 digits)
+            if (phone.length !== 10) {
+                alertMsg.innerText = "INVALID INPUT: Mobile number must be exactly 10 digits.";
+                alertBox.classList.remove('hidden');
+                return false;
+            }
+
+            // If passes validation:
+            successBox.classList.remove('hidden');
+            
+            // Clear form
+            document.getElementById('admissionForm').reset();
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                successBox.classList.add('hidden');
+            }, 5000);
+        }
+
+        // --- 4. GEMINI API: AI CAREER COUNSELOR ✨ ---
+        const apiKey = ""; // API key is injected by the environment
+
+        async function getCareerRecommendation(event) {
+            event.preventDefault();
+            const inputField = document.getElementById('ai-interest-input');
+            const resultDiv = document.getElementById('ai-result');
+            const btn = document.getElementById('ai-submit-btn');
+            const userText = inputField.value.trim();
+
+            if (!userText) {
+                resultDiv.innerHTML = '<p class="text-red-500 font-semibold text-center w-full"><i class="fas fa-exclamation-circle mr-1"></i> Please tell us about your interests first!</p>';
+                return;
+            }
+
+            // UI Loading state
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Analyzing your profile...';
+            resultDiv.innerHTML = '<div class="text-center w-full text-gray-500"><i class="fas fa-circle-notch fa-spin text-3xl mb-3 text-brandBlue block"></i><p>Consulting our AI expert...</p></div>';
+
+            const systemPrompt = "You are an expert, encouraging career counselor for Govt. Div. ITI Gwalior. Based on the user's input about their interests and hobbies, recommend one or two of the following trades offered at the institute: COPA, Electrician, Fitter, Welder, Stenographer, Machinist, Turner, Mechanic Motor Vehicle (MMV), Electronics Mechanic, Draftsman (Civil), Plumber, Dress Making, or Cosmetology. Briefly explain why this trade is a perfect fit for them in 2-3 sentences. Keep your tone highly professional, motivating, and concise.";
+            
+            const payload = {
+                contents: [{ parts: [{ text: userText }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] }
+            };
+
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+
+            // Exponential backoff for API call
+            let retries = 5;
+            let delay = 1000;
+            let success = false;
+            let data = null;
+
+            while (retries > 0 && !success) {
+                try {
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    
+                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                    data = await response.json();
+                    success = true;
+                } catch (error) {
+                    retries--;
+                    if (retries === 0) {
+                        resultDiv.innerHTML = '<p class="text-red-500 font-semibold text-center w-full"><i class="fas fa-exclamation-triangle mr-2"></i> Sorry, the AI counselor is currently unavailable. Please try again later.</p>';
+                        btn.disabled = false;
+                        btn.innerHTML = 'Get AI Recommendation ✨ <i class="fas fa-magic ml-2"></i>';
+                        return;
+                    }
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                    delay *= 2;
+                }
+            }
+
+            if (data && data.candidates && data.candidates[0].content.parts[0].text) {
+                const aiResponse = data.candidates[0].content.parts[0].text;
+                // Parse markdown-like bolding for better display
+                const formattedResponse = aiResponse.replace(/\*\*(.*?)\*\*/g, '<strong class="text-brandBlue">$1</strong>').replace(/\n/g, '<br/>');
+                
+                resultDiv.innerHTML = `
+                    <div class="bg-blue-50 border-l-4 border-brandOrange p-5 rounded text-gray-800 text-left w-full shadow-sm">
+                        <div class="flex items-center mb-3">
+                            <i class="fas fa-robot text-2xl text-brandBlue mr-3"></i>
+                            <h4 class="font-bold text-lg text-brandBlue">AI Recommendation</h4>
+                        </div>
+                        <p class="leading-relaxed">${formattedResponse}</p>
+                    </div>
+                `;
+            } else {
+                resultDiv.innerHTML = '<p class="text-red-500 font-semibold text-center w-full">Failed to get a recommendation. Please try again.</p>';
+            }
+
+            // Restore button state
+            btn.disabled = false;
+            btn.innerHTML = 'Get AI Recommendation ✨ <i class="fas fa-magic ml-2"></i>';
+        }
+    </script>
+</body>
+</html>
